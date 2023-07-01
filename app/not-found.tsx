@@ -37,7 +37,7 @@ export default function NotFound() {
 	<meta name="twitter:card" content="summary_large_image"/>
 	<meta name="twitter:title" content="404 - Not found"/>
 	<meta name="twitter:description" content="404 - Not found"/>
-	<meta name="twitter:image" content={`https://${process.env.VERCEL_UR || "localhost:3000"}/400.jpg`}/>
+	<meta name="twitter:image" content={`https://${process.env.VERCEL_URL || "localhost:3000"}/400.jpg`}/>
       </head>
       <div className="w-screen h-screen flex flex-col justify-center items-center">
 	<Image src="/404.jpg" alt="Status code {code} image" width={800} height={700}/>
