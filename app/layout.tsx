@@ -15,6 +15,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <script
+        data-goatcounter="https://capycodes.goatcounter.com/count"
+        async
+        src="//gc.zgo.at/count.js"
+      ></script>
       <body className={inter.className}>{children}</body>
     </html>
   );
