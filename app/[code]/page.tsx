@@ -18,7 +18,16 @@ export async function generateMetadata(
 	alt: `Capybara Codes - ${code}`,
       }
 
-    }
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `Capaybara Codes - ${code}`,
+      description: 'Capybara Codes',
+      // siteId: '1467726470533754880',
+      // creator: '@nextjs',
+      // creatorId: '1467726470533754880',
+      images: [`/${code}.jpg`],
+    },
   }
 }
 
