@@ -6,6 +6,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Capybara Codes",
   description: "A capybara for every HTTP status code",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  site
 };
 
 export default function RootLayout({
