@@ -1,10 +1,9 @@
 import { statuses } from "@/lib/status"
 import { Metadata } from "next"
 import Image from "next/image"
-
-export async function generateMetadata(): Promise<Metadata> {
   const status = statuses["400"];
-  return {
+
+export const metadata: Metadata = {
     title: `Capybara Codes - ${status.code}`,
     openGraph: {
       images:       {
@@ -24,7 +23,6 @@ export async function generateMetadata(): Promise<Metadata> {
       // creatorId: '1467726470533754880',
       images: [`/${status.code}.jpg`],
     },
-  }
 }
 
 export default function CodePage() {
@@ -32,4 +30,3 @@ export default function CodePage() {
     <Image src="/404.jpg" alt="Status code {code} image" width={800} height={700}/>
   </div>
 }
-
