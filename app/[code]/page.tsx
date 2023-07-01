@@ -1,35 +1,35 @@
+import { statuses } from "@/lib/status"
 import { Metadata } from "next"
 import Image from "next/image"
 
 export async function generateMetadata(
   { params }: { params: { code: string } }
 ): Promise<Metadata> {
-  // read route params
-  const code = params.code
+  const status = statuses[params.code];
  
-  // fetch data
   return {
-    title: `Capybara Codes - ${code}`,
+    title: `Capybara Codes - ${status.code}`,
     openGraph: {
-      images: [`/${code}.jpg`],
+      images:       {
+	url: `/${status.code}.jpg`,
+	width: 1600,
+	height: 1400,
+	alt: `${status.code} - ${status.message}`,
+      }
+
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${status.code} - ${status.message}`,
+      description: `${status.code} - ${status.message}`,
+      // siteId: '1467726470533754880',
+      // creator: '@nextjs',
+      // creatorId: '1467726470533754880',
+      images: [`/${status.code}.jpg`],
     },
   }
 }
 
-// export const metadata: Metadata = {
-// title: "Capybara Codes",
-//        openGraph: {
-// images: [
-// 	{
-// url: "/423.jpg",
-//      width: 1600,
-//      height: 1400,
-//      alt: "Capybara Codes",
-// 	},
-// ],
-//        }
-// }
-//
 export default function CodePage({ params }: { params: { code: string } }) {
   return <div className="w-screen h-screen flex flex-col justify-center items-center">
     <Image src={`/${params.code}.jpg`} alt="Status code {code} image" width={800} height={700}/>
