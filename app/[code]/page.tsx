@@ -11,25 +11,17 @@ export async function generateMetadata(
   return {
     title: `Capybara Codes - ${code}`,
     openGraph: {
-      images: [`/${code}.jpg`],
-    },
+      images:       {
+	url: `/${code}.jpg`,
+	width: 1600,
+	height: 1400,
+	alt: `Capybara Codes - ${code}`,
+      }
+
+    }
   }
 }
 
-// export const metadata: Metadata = {
-// title: "Capybara Codes",
-//        openGraph: {
-// images: [
-// 	{
-// url: "/423.jpg",
-//      width: 1600,
-//      height: 1400,
-//      alt: "Capybara Codes",
-// 	},
-// ],
-//        }
-// }
-//
 export default function CodePage({ params }: { params: { code: string } }) {
   return <div className="w-screen h-screen flex flex-col justify-center items-center">
     <Image src={`/${params.code}.jpg`} alt="Status code {code} image" width={800} height={700}/>
