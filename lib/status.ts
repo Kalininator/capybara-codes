@@ -49,7 +49,7 @@ export const statuses: {[k: string]: { code: number, message: string}} = {
   // "431": { code: 431, message: 'Request Header Fields Too Large' },
   // "444": { code: 444, message: 'No Response' },
   // "450": { code: 450, message: 'Blocked by Windows Parental Controls' },
-  // "451": { code: 451, message: 'Unavailable For Legal Reasons' },
+  "451": { code: 451, message: 'Unavailable For Legal Reasons' },
   // "497": { code: 497, message: 'HTTP Request Sent to HTTPS Port' },
   // "498": { code: 498, message: 'Token expired/invalid' },
   // "499": { code: 499, message: 'Client Closed Request' },
