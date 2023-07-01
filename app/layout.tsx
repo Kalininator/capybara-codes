@@ -10,7 +10,6 @@ export const metadata = {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   },
-  site
 };
 
 export default function RootLayout({
