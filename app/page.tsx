@@ -4,7 +4,6 @@ export default function Home() {
     <p>Capybara status codes.</p> 
     <a href="/200">capybara.codes/200</a>
     <p>Actual home page soon ™️</p> 
-    <p>Only have 200/404 picture for now. Rest coming soon</p>
     </main>
   )
 }
