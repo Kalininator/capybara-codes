@@ -20,7 +20,6 @@ export async function generateMetadata(
 	height: 1400,
 	alt: `${status.code} - ${status.message}`,
       }
-
     },
     twitter: {
       card: 'summary_large_image',
