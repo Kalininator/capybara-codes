@@ -1,32 +1,31 @@
+import { statuses } from "@/lib/status"
 import { Metadata } from "next"
 import Image from "next/image"
 
 export async function generateMetadata(
   { params }: { params: { code: string } }
 ): Promise<Metadata> {
-  // read route params
-  const code = params.code
+  const status = statuses[params.code];
  
-  // fetch data
   return {
-    title: `Capybara Codes - ${code}`,
+    title: `Capybara Codes - ${status.code}`,
     openGraph: {
       images:       {
-	url: `/${code}.jpg`,
+	url: `/${status.code}.jpg`,
 	width: 1600,
 	height: 1400,
-	alt: `Capybara Codes - ${code}`,
+	alt: `${status.code} - ${status.message}`,
       }
 
     },
     twitter: {
       card: 'summary_large_image',
-      title: `Capaybara Codes - ${code}`,
-      description: 'Capybara Codes',
+      title: `${status.code} - ${status.message}`,
+      description: `${status.code} - ${status.message}`,
       // siteId: '1467726470533754880',
       // creator: '@nextjs',
       // creatorId: '1467726470533754880',
-      images: [`/${code}.jpg`],
+      images: [`/${status.code}.jpg`],
     },
   }
 }
