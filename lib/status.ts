@@ -45,7 +45,7 @@ export const statuses: {[k: string]: { code: number, message: string}} = {
   // "425": { code: 425, message: 'Too Early' },
   // "426": { code: 426, message: 'Upgrade Required' },
   // "428": { code: 428, message: 'Precondition Required' },
-  // "429": { code: 429, message: 'Too Many Requests' },
+  "429": { code: 429, message: 'Too Many Requests' },
   // "431": { code: 431, message: 'Request Header Fields Too Large' },
   // "444": { code: 444, message: 'No Response' },
   // "450": { code: 450, message: 'Blocked by Windows Parental Controls' },
