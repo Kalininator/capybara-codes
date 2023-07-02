@@ -12,7 +12,7 @@ export default function Home() {
           <Link
             key={status.code}
             href={`/${status.code}`}
-            className="w-2/5 md:w-1/4"
+            className="w-2/5 md:w-1/4 xl:w-1/5"
           >
             <Image
               src={`/${status.code}.jpg`}
