@@ -6,8 +6,17 @@ import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 export const getServerSideProps: GetServerSideProps<{
   status: Status;
 }> = async (context) => {
-  const code = context.params!.code;
-  return { props: { status: statuses[code as string] } };
+  const code = context.params?.code;
+  const status = statuses[code as string];
+  if (!status) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+  return { props: { status } };
 };
 
 export default function Page({
