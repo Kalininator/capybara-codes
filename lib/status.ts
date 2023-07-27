@@ -1,4 +1,9 @@
-export const statuses: { [k: string]: { code: number; message: string } } = {
+export type Status = {
+  code: number;
+  message: string;
+};
+
+export const statuses: { [k: string]: Status } = {
   "100": { code: 100, message: "Continue" },
   "101": { code: 101, message: "Switching Protocols" },
   "102": { code: 102, message: "Processing" },
