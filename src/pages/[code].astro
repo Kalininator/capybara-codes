@@ -8,6 +8,7 @@ return Object.keys(statuses).map(status => ({ params: { code: status }}))
 const { code } = Astro.params;
 const status = statuses[code!];
 const statusString = `${status.code} - ${status.message}`;
+export const prerender = true;
 ---
 
 <!DOCTYPE html>
