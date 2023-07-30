@@ -1,0 +1,10 @@
+---
+interface Props {
+  code: string;
+}
+const { code } = Astro.props;
+---
+
+<pre class="bg-gray-300 p-2 rounded-lg">
+  <code>{code}</code>
+</pre>

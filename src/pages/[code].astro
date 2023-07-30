@@ -1,0 +1,57 @@
+---
+import { statuses } from "../util/status";
+
+export function getStaticPaths() {
+return Object.keys(statuses).map(status => ({ params: { code: status }}))
+}
+
+const { code } = Astro.params;
+const status = statuses[code!];
+const statusString = `${status.code} - ${status.message}`;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description">
+    <meta name="viewport" content="width=device-width" />
+    <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <script
+          data-goatcounter="https://capycodes.goatcounter.com/count"
+          async
+          src="//gc.zgo.at/count.js"
+        ></script>
+    <meta name="generator" content={Astro.generator} />
+    <title>{statusString}</title>
+    <meta property="og:image" content={`${Astro.url}.jpg`} />
+    <meta property="og:image:width" content="1600" />
+    <meta property="og:image:height" content="1400" />
+    <meta property="og:image:alt" content={statusString} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={statusString} />
+    <meta name="twitter:description" content={statusString} />
+    <meta name="twitter:image" content={`${Astro.url}.jpg`} />
+  </head>
+  <body>
+    <div class="w-screen h-screen flex flex-col justify-center items-center">
+      <img src=`${code}.jpg` />
+    </div>
+  </body>
+</html>
