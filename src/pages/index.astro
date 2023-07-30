@@ -1,0 +1,55 @@
+---
+import { statuses } from "../util/status";
+import CodeSnippet from "../components/CodeSnippet.astro"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="A capybara for every status code">
+    <meta name="viewport" content="width=device-width" />
+    <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <script
+          data-goatcounter="https://capycodes.goatcounter.com/count"
+          async
+          src="//gc.zgo.at/count.js"
+        ></script>
+    <meta name="generator" content={Astro.generator} />
+    <title>Capybara Codes</title>
+  </head>
+  <body>
+    <main class="flex min-h-screen gap-6 flex-col items-center justify-center py-16 lg:px-24">
+        <h1 class="text-4xl font-bold">Capybara Codes</h1>
+        <p>A capybara for every HTTP status code</p>
+	<CodeSnippet code="https://capybara.codes/[code]" />
+	<CodeSnippet code="https://capybara.codes/[code].jpg" />
+        <div class="flex flex-row flex-wrap gap-4 justify-center items-center content-evenly">
+          {Object.values(statuses).map((status) => (
+            <a href={`/${status.code}`} class="w-2/5 md:w-1/4 xl:w-1/5">
+              <img
+                src={`/${status.code}.jpg`}
+                alt={status.message}
+              />
+            </a>
+          ))}
+        </div>
+      </main>
+  </body>
+</html>
