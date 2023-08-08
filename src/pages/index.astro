@@ -1,4 +1,5 @@
 ---
+import { Image } from '@astrojs/image/components';
 import { statuses } from "../util/status";
 import CodeSnippet from "../components/CodeSnippet.astro"
 ---
@@ -42,10 +43,7 @@ import CodeSnippet from "../components/CodeSnippet.astro"
         <div class="flex flex-row flex-wrap gap-4 justify-between items-center content-between">
           {Object.values(statuses).map((status) => (
             <a href={`/${status.code}`} class="w-2/5 md:w-1/4">
-              <img
-                src={`/${status.code}.jpg`}
-                alt={status.message}
-              />
+	      <Image src={`/${status.code}.jpg`} alt={status.message} width={400} height={350} format="jpg" />
             </a>
           ))}
         </div>
