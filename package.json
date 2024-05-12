@@ -15,5 +15,8 @@
     "@astrojs/vercel": "^3.7.4",
     "astro": "^2.9.6",
     "tailwindcss": "^3.3.3"
+  },
+  "devDependencies": {
+    "jimp": "^0.22.12"
   }
 }
