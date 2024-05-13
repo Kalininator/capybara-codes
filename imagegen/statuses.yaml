@@ -74,7 +74,7 @@ statuses:
   - code: 417
     message: Expectation Failed
   - code: 418
-    message: I’m a teapot
+    message: I'm a teapot
   - code: 420
     message: Enhance Your Calm
   - code: 421
