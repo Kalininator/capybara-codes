@@ -1,52 +1,49 @@
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from "@astrojs/image/components";
 import { statuses } from "../util/status";
-import CodeSnippet from "../components/CodeSnippet.astro"
+import CodeSnippet from "../components/CodeSnippet.astro";
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="A capybara for every status code">
+    <meta name="description" content="A capybara for every status code" />
     <meta name="viewport" content="width=device-width" />
-    <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon-16x16.png"
-        />
-        <script
-          data-goatcounter="https://capycodes.goatcounter.com/count"
-          async
-          src="//gc.zgo.at/count.js"
-        ></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <script
+      data-goatcounter="https://capycodes.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"></script>
     <meta name="generator" content={Astro.generator} />
-    <title>Capybara Codes</title>
+    <title>Capy Codes</title>
   </head>
   <body class="bg-orange-50">
-    <main class="flex min-h-screen gap-6 flex-col  justify-center py-16 px-4 md:px-24 lg:px-48">
-        <h1 class="text-4xl font-bold">Capybara Codes</h1>
-	<h2 class="font-bold text-2xl">Usage:</h2>
-	<CodeSnippet code="https://capybara.codes/[code].jpg" />
-        <div class="flex flex-row flex-wrap gap-4 justify-between items-center content-between">
-          {Object.values(statuses).map((status) => (
+    <main
+      class="flex min-h-screen gap-6 flex-col justify-center py-16 px-4 md:px-24 lg:px-48"
+    >
+      <h1 class="text-4xl font-bold">Capy Codes</h1>
+      <h2 class="font-bold text-2xl">Usage:</h2>
+      <CodeSnippet code="https://capy.codes/[code].jpg" />
+      <div
+        class="flex flex-row flex-wrap gap-4 justify-between items-center content-between"
+      >
+        {
+          Object.values(statuses).map((status) => (
             <a href={`/${status.code}`} class="w-2/5 md:w-1/4">
-	      <Image src={`/${status.code}.jpg`} alt={status.message} width={400} height={350} format="jpg" />
+              <Image
+                src={`/${status.code}.jpg`}
+                alt={status.message}
+                width={400}
+                height={350}
+                format="jpg"
+              />
             </a>
-          ))}
-        </div>
-      </main>
+          ))
+        }
+      </div>
+    </main>
   </body>
 </html>
