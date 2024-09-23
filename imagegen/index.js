@@ -2,7 +2,7 @@ const Jimp = require('jimp')
 const fs = require('fs');
 const yaml = require('js-yaml');
 
-async function generateCenteredAndScaledImageWithText(inputImagePath, outputImagePath, backgroundColor, outputWidth, outputHeight, maxWidthPercent, maxHeightPercent, text1, text2) {
+async function generateCenteredAndScaledImageWithText(inputImagePath, outputImagePath, backgroundColor, outputWidth, outputHeight, maxWidthPercent, maxHeightPercent, text1, text2, text3 = 'foobar') {
 	try {
 		// Load the input image
 		const inputImage = await Jimp.read(inputImagePath);
@@ -36,9 +36,14 @@ async function generateCenteredAndScaledImageWithText(inputImagePath, outputImag
 		const textX2 = Math.floor((outputWidth - Jimp.measureText(font2, text2)) / 2);
 		const textY2 = textY1 + 10 + 64;
 
+		const font3 = await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE);
+		const textX3 = outputWidth - (Jimp.measureText(font3, text3) + 10);
+		const textY3 = 10
+
 		// Print both lines of text
 		outputImage.print(font1, textX1, textY1, text1);
 		outputImage.print(font2, textX2, textY2, text2);
+		outputImage.print(font3, textX3, textY3, text3);
 
 		// Save the output image
 		await outputImage.writeAsync(outputImagePath);
@@ -65,6 +70,7 @@ statuses.forEach(status => {
 	const outputImagePath = `../public/${status.code}.jpg`; // Replace with your desired output image path
 	const text1 = status.code.toString();
 	const text2 = status.message;
-	generateCenteredAndScaledImageWithText(inputImagePath, outputImagePath, backgroundColor, outputWidth, outputHeight, maxWidthPercent, maxHeightPercent, text1, text2);
+	const text3 = `capy.codes/${status.code}`;
+	generateCenteredAndScaledImageWithText(inputImagePath, outputImagePath, backgroundColor, outputWidth, outputHeight, maxWidthPercent, maxHeightPercent, text1, text2, text3);
 	console.log(`Generated image for status ${status.code}`);
 })
