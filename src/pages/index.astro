@@ -25,7 +25,12 @@ import bannerSvg from "../images/banner.svg";
     <main
       class="flex gap-6 flex-col justify-center items-center py-4 px-4 md:px-24 lg:px-48"
     >
-      <Image src={bannerSvg} alt="A capybara" format="svg" />
+      <Image
+        src={bannerSvg}
+        alt="A capybara"
+        format="svg"
+        class="w-full max-w-3xl"
+      />
       <CodeSnippet code="https://capy.codes/[code].jpg" />
       <div class="grid grid-cols-2 md:grid-cols-3 gap-4 lg:grid-cols-4">
         {
