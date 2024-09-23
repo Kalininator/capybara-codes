@@ -23,9 +23,14 @@ import bannerSvg from "../images/banner.svg";
   </head>
   <body class="bg-bg">
     <main
-      class="flex min-h-screen gap-6 flex-col justify-center py-16 px-4 md:px-24 lg:px-48 items-center"
+      class="flex min-h-screen gap-6 flex-col justify-center items-center py-4 px-4 md:px-24 lg:px-48"
     >
-      <img src={bannerSvg.src} alt="A capybara" class="max-w-3xl" />
+      <Image
+        src={bannerSvg}
+        alt="A capybara"
+        class="max-w-full md:max-w-2xl lg:max-w-3xl"
+        format="svg"
+      />
       <CodeSnippet code="https://capy.codes/[code].jpg" />
       <div
         class="flex flex-row flex-wrap gap-4 justify-between items-center content-between"
