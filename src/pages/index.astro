@@ -32,12 +32,10 @@ import bannerSvg from "../images/banner.svg";
         format="svg"
       />
       <CodeSnippet code="https://capy.codes/[code].jpg" />
-      <div
-        class="flex flex-row flex-wrap gap-4 justify-between items-center content-between"
-      >
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 lg:grid-cols-4">
         {
           Object.values(statuses).map((status) => (
-            <a href={`/${status.code}`} class="w-2/5 md:w-1/4">
+            <a href={`/${status.code}`}>
               <Image
                 src={`/${status.code}.jpg`}
                 alt={status.message}
