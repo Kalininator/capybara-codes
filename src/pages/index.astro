@@ -2,6 +2,7 @@
 import { Image } from "@astrojs/image/components";
 import { statuses } from "../util/status";
 import CodeSnippet from "../components/CodeSnippet.astro";
+import bannerSvg from "../images/banner.svg";
 ---
 
 <!DOCTYPE html>
@@ -20,12 +21,11 @@ import CodeSnippet from "../components/CodeSnippet.astro";
     <meta name="generator" content={Astro.generator} />
     <title>Capy Codes</title>
   </head>
-  <body class="bg-orange-50">
+  <body class="bg-bg">
     <main
-      class="flex min-h-screen gap-6 flex-col justify-center py-16 px-4 md:px-24 lg:px-48"
+      class="flex min-h-screen gap-6 flex-col justify-center py-16 px-4 md:px-24 lg:px-48 items-center"
     >
-      <h1 class="text-4xl font-bold">Capy Codes</h1>
-      <h2 class="font-bold text-2xl">Usage:</h2>
+      <img src={bannerSvg.src} alt="A capybara" class="max-w-3xl" />
       <CodeSnippet code="https://capy.codes/[code].jpg" />
       <div
         class="flex flex-row flex-wrap gap-4 justify-between items-center content-between"
