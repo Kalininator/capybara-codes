@@ -4,7 +4,10 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				bg: '#fef0da'
+				bg: '#fef0da',
+				main: '#f4400d',
+				aux1: '#2f2a76',
+				aux2: '#3aaab2'
 			}
 		},
 	},
