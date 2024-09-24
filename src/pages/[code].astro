@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { statuses } from "../util/status";
 
 export function getStaticPaths() {
@@ -8,6 +9,8 @@ export function getStaticPaths() {
 const { code } = Astro.params;
 const status = statuses[code!];
 const statusString = `${status.code} - ${status.message}`;
+
+const images = import.meta.glob("../../public/*");
 ---
 
 <!DOCTYPE html>
@@ -16,28 +19,29 @@ const statusString = `${status.code} - ${status.message}`;
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description">
     <meta name="viewport" content="width=device-width" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <link
           rel="apple-touch-icon"
           sizes="180x180"
           href="/apple-touch-icon.png"
         />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon-16x16.png"
-        />
-        <script
-          data-goatcounter="https://capycodes.goatcounter.com/count"
-          async
-          src="//gc.zgo.at/count.js"
-        ></script>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon-16x16.png"
+    />
+    <script
+      data-goatcounter="https://capycodes.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"
+    ></script>
     <meta name="generator" content={Astro.generator} />
     <title>{statusString}</title>
     <meta property="og:image" content={`${Astro.url}.jpg`} />
@@ -51,7 +55,7 @@ const statusString = `${status.code} - ${status.message}`;
   </head>
   <body class="bg-bg">
     <div class="w-screen h-screen flex flex-col justify-center items-center">
-      <img src=`${code}.jpg` />
+      <Image src={images[`../../public/${status.code}.jpg`]()} alt={statusString} loading="eager" />
     </div>
   </body>
 </html>
