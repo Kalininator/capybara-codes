@@ -55,7 +55,7 @@ async function generateCenteredAndScaledImageWithText(inputImagePath, outputImag
 	}
 }
 
-const data = fs.readFileSync('statuses.yaml', 'utf8');
+const data = fs.readFileSync('../statuses.yaml', 'utf8');
 const statuses = yaml.load(data).statuses;
 
 // Example usage
