@@ -1,84 +1,79 @@
 ---
-import { Image } from "astro:assets";
-import { statuses } from "../util/status";
-import CodeSnippet from "../components/CodeSnippet.astro";
-import bannerSvg from "../images/banner.svg";
+import { Image } from 'astro:assets'
+import { statuses } from '../util/status'
+import CodeSnippet from '../components/CodeSnippet.astro'
+import bannerSvg from '../images/banner.svg'
 
 export function getStaticPaths() {
-  return Object.keys(statuses).map(status => ({ params: { code: status }}))
+  return Object.keys(statuses).map((status) => ({ params: { code: status } }))
 }
 
-const { code } = Astro.params;
-const status = statuses[code!];
-const statusString = `${status.code} - ${status.message}`;
+const { code } = Astro.params
+const status = statuses[code!]
+const statusString = `${status.code} - ${status.message}`
 
-const images = import.meta.glob("../../public/*");
+const images = import.meta.glob('../../public/*')
 ---
 
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang='en'>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Astro description">
-    <meta name="viewport" content="width=device-width" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/favicon-16x16.png"
-    />
+    <meta charset='UTF-8' />
+    <meta name='description' content='Astro description' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='sitemap' href='/sitemap-index.xml' />
+    <link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png' />
+    <link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png' />
+    <link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png' />
     <script
-      data-goatcounter="https://capycodes.goatcounter.com/count"
+      data-goatcounter='https://capycodes.goatcounter.com/count'
       async
-      src="//gc.zgo.at/count.js"
-    ></script>
-    <meta name="generator" content={Astro.generator} />
+      src='//gc.zgo.at/count.js'></script>
+    <meta name='generator' content={Astro.generator} />
     <title>{statusString}</title>
-    <meta property="og:image" content={`${Astro.url}.jpg`} />
-    <meta property="og:image:width" content="1600" />
-    <meta property="og:image:height" content="1400" />
-    <meta property="og:image:alt" content={statusString} />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={statusString} />
-    <meta name="twitter:description" content={statusString} />
-    <meta name="twitter:image" content={`${Astro.url}.jpg`} />
+    <meta property='og:image' content={`${Astro.url}.jpg`} />
+    <meta property='og:image:width' content='1600' />
+    <meta property='og:image:height' content='1400' />
+    <meta property='og:image:alt' content={statusString} />
+    <meta name='twitter:card' content='summary_large_image' />
+    <meta name='twitter:title' content={statusString} />
+    <meta name='twitter:description' content={statusString} />
+    <meta name='twitter:image' content={`${Astro.url}.jpg`} />
   </head>
-  <body class="bg-bg">
-    <main
-      class="flex gap-6 flex-col justify-center items-center py-4 px-4"
-    >
-      <a href="/" class="w-full max-w-3xl">
-        <Image
-          src={bannerSvg}
-          alt="A capybara"
-          format="svg"
-          loading="eager"
-        />
+  <body class='bg-bg'>
+    <main class='flex gap-6 flex-col justify-center items-center py-4 px-4'>
+      <a href='/' class='w-full max-w-3xl'>
+        <Image src={bannerSvg} alt='A capybara' format='svg' loading='eager' />
       </a>
-      <div class="flex flex-wrap items-center w-full md:max-w-5xl gap-6 md:gap-0">
-          <div class="w-full md:w-1/2 order-first">
-          <h2 class="md:hidden font-heading text-3xl md:text-5xl text-gray-900 font-semibold mb-8 mt-5 md:mt-0"><span class="block text-7xl font-extrabold">{status.code}</span> {status.message}</h2>
-            <Image class="rounded-lg" src={images[`../../public/${status.code}.jpg`]()} alt={statusString} loading="eager" />
-          </div>
-          <div class="w-full md:w-1/2 md:px-8 flex flex-col gap-4">
-            <h2 class="hidden font-heading text-4xl md:text-5xl text-gray-900 font-semibold mb-8 mt-5 md:mt-0 md:block"><span class="block text-9xl font-extrabold">{status.code}</span> {status.message}</h2>
-            <h2 class="text-aux1 text-2xl font-semibold">Link to image</h2>
-            <CodeSnippet code={`https://capy.codes/${status.code}.jpg`} />
-            <h2 class="text-aux1 text-2xl font-semibold">Link to this page</h2>
-            <CodeSnippet code={`https://capy.codes/${status.code}`} />
-          </div>
+      <div
+        class='flex flex-wrap items-center w-full md:max-w-5xl gap-6 md:gap-0'
+      >
+        <div class='w-full md:w-1/2 order-first'>
+          <h2
+            class='md:hidden font-heading text-3xl md:text-5xl text-gray-900 font-semibold mb-8 mt-5 md:mt-0'
+          >
+            <span class='block text-7xl font-extrabold'>{status.code}</span>
+            {status.message}
+          </h2>
+          <Image
+            class='rounded-lg'
+            src={images[`../../public/${status.code}.jpg`]()}
+            alt={statusString}
+            loading='eager'
+          />
+        </div>
+        <div class='w-full md:w-1/2 md:px-8 flex flex-col gap-4'>
+          <h2
+            class='hidden font-heading text-4xl md:text-5xl text-gray-900 font-semibold mb-8 mt-5 md:mt-0 md:block'
+          >
+            <span class='block text-9xl font-extrabold'>{status.code}</span>
+            {status.message}
+          </h2>
+          <h2 class='text-aux1 text-2xl font-semibold'>Link to image</h2>
+          <CodeSnippet code={`https://capy.codes/${status.code}.jpg`} />
+          <h2 class='text-aux1 text-2xl font-semibold'>Link to this page</h2>
+          <CodeSnippet code={`https://capy.codes/${status.code}`} />
+        </div>
       </div>
     </main>
   </body>

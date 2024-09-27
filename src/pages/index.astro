@@ -1,41 +1,41 @@
 ---
-import { Image } from "astro:assets";
-import { statuses } from "../util/status";
-import CodeSnippet from "../components/CodeSnippet.astro";
-import bannerSvg from "../images/banner.svg";
+import { Image } from 'astro:assets'
+import { statuses } from '../util/status'
+import CodeSnippet from '../components/CodeSnippet.astro'
+import bannerSvg from '../images/banner.svg'
 ---
 
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang='en'>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="A capybara for every status code" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta charset='UTF-8' />
+    <meta name='description' content='A capybara for every status code' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png' />
+    <link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png' />
+    <link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png' />
+    <link rel='sitemap' href='/sitemap-index.xml' />
     <script
       is:inline
-      data-goatcounter="https://capycodes.goatcounter.com/count"
+      data-goatcounter='https://capycodes.goatcounter.com/count'
       async
-      src="//gc.zgo.at/count.js"></script>
-    <meta name="generator" content={Astro.generator} />
+      src='//gc.zgo.at/count.js'></script>
+    <meta name='generator' content={Astro.generator} />
     <title>Capy Codes</title>
   </head>
-  <body class="bg-bg">
+  <body class='bg-bg'>
     <main
-      class="flex gap-6 flex-col justify-center items-center py-4 px-4 md:px-24 lg:px-48"
+      class='flex gap-6 flex-col justify-center items-center py-4 px-4 md:px-24 lg:px-48'
     >
       <Image
         src={bannerSvg}
-        alt="A capybara"
-        format="svg"
-        class="w-full max-w-3xl"
-        loading="eager"
+        alt='A capybara'
+        format='svg'
+        class='w-full max-w-3xl'
+        loading='eager'
       />
-      <CodeSnippet code="https://capy.codes/[code].jpg" />
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 lg:grid-cols-4">
+      <CodeSnippet code='https://capy.codes/[code].jpg' />
+      <div class='grid grid-cols-2 md:grid-cols-3 gap-4 lg:grid-cols-4'>
         {
           Object.values(statuses).map((status) => (
             <a href={`/${status.code}`}>
@@ -44,7 +44,7 @@ import bannerSvg from "../images/banner.svg";
                 alt={status.message}
                 width={320}
                 height={280}
-                format="jpg"
+                format='jpg'
               />
             </a>
           ))
