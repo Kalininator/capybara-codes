@@ -13,6 +13,8 @@ const status = statuses[code!]
 const statusString = `${status.code} - ${status.message}`
 
 const images = import.meta.glob('../../public/*')
+
+const socialImageURL = new URL(`/${code}.jpg`, Astro.url);
 ---
 
 <!doctype html>
@@ -31,14 +33,14 @@ const images = import.meta.glob('../../public/*')
       src='//gc.zgo.at/count.js'></script>
     <meta name='generator' content={Astro.generator} />
     <title>{statusString}</title>
-    <meta property='og:image' content={`${Astro.url}.jpg`} />
+    <meta property='og:image' content={socialImageURL} />
     <meta property='og:image:width' content='1600' />
     <meta property='og:image:height' content='1400' />
     <meta property='og:image:alt' content={statusString} />
     <meta name='twitter:card' content='summary_large_image' />
     <meta name='twitter:title' content={statusString} />
     <meta name='twitter:description' content={statusString} />
-    <meta name='twitter:image' content={`${Astro.url}.jpg`} />
+    <meta name='twitter:image' content={socialImageURL} />
   </head>
   <body class='bg-bg'>
     <main class='flex gap-6 flex-col justify-center items-center py-4 px-4'>
